@@ -2,55 +2,52 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { legalLinks, navLinks, site } from "@/lib/content/site";
 
+function InlineLinks({
+  items,
+}: {
+  items: readonly { href: string; label: string }[];
+}) {
+  return (
+    <span className="flex flex-wrap items-center gap-x-1">
+      {items.map((item, index) => (
+        <span key={item.href} className="flex items-center">
+          {index > 0 ? <span className="mx-2 text-lavender-strong">/</span> : null}
+          <Link href={item.href} className="hover:text-graphite">
+            {item.label}
+          </Link>
+        </span>
+      ))}
+    </span>
+  );
+}
+
 export function SiteFooter() {
   return (
     <footer className="mt-8 border-t border-lavender bg-white">
-      <Container className="grid gap-10 py-14 md:grid-cols-4">
-        <div className="md:col-span-2">
-          <p className="font-display text-2xl font-bold">{site.name}</p>
-          <p className="mt-3 max-w-md text-sm leading-6 text-graphite-soft">
+      <Container className="grid gap-3 py-5 text-sm">
+        <p className="font-display text-base font-semibold text-graphite">
+          {site.name}
+          <span className="ml-3 font-sans text-sm font-normal text-graphite-soft">
             {site.tagline}
-          </p>
-          <p className="mt-4 text-sm text-graphite-soft">{site.claim}</p>
-        </div>
+          </span>
+        </p>
 
-        <div>
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-violet">
+        <p className="flex flex-wrap items-center gap-x-3 text-graphite-soft">
+          <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-violet">
             Navegar
-          </p>
-          <ul className="mt-4 space-y-2">
-            {navLinks.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="text-sm text-graphite-soft hover:text-graphite">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+          </span>
+          <InlineLinks items={navLinks} />
+        </p>
 
-        <div>
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-violet">
-            Legal
-          </p>
-          <ul className="mt-4 space-y-2">
-            {legalLinks.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="text-sm text-graphite-soft hover:text-graphite">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link href="/ingresar" className="text-sm text-graphite-soft hover:text-graphite">
-                Ingresar
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </Container>
-      <Container className="border-t border-lavender py-6 text-xs text-graphite-soft">
-        © {new Date().getFullYear()} {site.name}. {site.domain}
+        <p className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-graphite-soft">
+          <span className="flex flex-wrap items-center gap-x-3">
+            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-violet">
+              Legal
+            </span>
+            <InlineLinks items={[...legalLinks, { href: "/ingresar", label: "Ingresar" }]} />
+          </span>
+          <span className="text-xs">© {new Date().getFullYear()} {site.domain}</span>
+        </p>
       </Container>
     </footer>
   );

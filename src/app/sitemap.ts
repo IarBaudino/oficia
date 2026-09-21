@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getSiteUrl } from "@/lib/site-url";
 
 const publicPaths = [
   "",
@@ -17,7 +18,7 @@ const publicPaths = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://oficia.ar";
+  const siteUrl = getSiteUrl();
 
   return publicPaths.map((path) => ({
     url: `${siteUrl}${path}`,
