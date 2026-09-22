@@ -13,6 +13,7 @@ export default function PrivacidadPage() {
         eyebrow="Legal"
         title="Política de privacidad"
         description="Estructura técnica lista. El contenido jurídico lo proporcionan o validan las responsables del proyecto."
+        media={false}
       />
       <Container className="prose prose-neutral max-w-3xl py-12 text-sm leading-7 text-graphite-soft">
         <p>

@@ -7,6 +7,9 @@ const variants = {
   secondary:
     "bg-white text-graphite border border-lavender-strong hover:bg-lavender",
   ghost: "bg-transparent text-graphite hover:bg-lavender",
+  inverse: "bg-white text-graphite hover:bg-lavender",
+  outlineDark:
+    "bg-transparent text-white border border-white/35 hover:bg-white/10",
 } as const;
 
 type CommonProps = {
@@ -29,7 +32,7 @@ export function Button({
   ...props
 }: ButtonAsButton | ButtonAsLink) {
   const classes = cn(
-    "inline-flex items-center justify-center rounded-[var(--radius-card)] px-5 py-3 text-sm font-semibold tracking-tight transition",
+    "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold tracking-tight transition",
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
     variants[variant],
     className,

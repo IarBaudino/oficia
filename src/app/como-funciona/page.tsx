@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { DarkBand } from "@/components/layout/DarkBand";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Cómo funciona",
@@ -31,28 +34,39 @@ export default function ComoFuncionaPage() {
         title="Cómo funciona OFICIA"
         description="Un flujo simple para quien necesita un servicio y para quien quiere sumarse a la red."
       />
-      <Container className="grid gap-6 py-12 md:grid-cols-2">
-        <Card>
-          <h2 className="font-display text-2xl font-semibold">Si necesitás un servicio</h2>
-          <ol className="mt-5 space-y-3 text-sm leading-6 text-graphite-soft">
-            {forClients.map((item, index) => (
-              <li key={item}>
-                <span className="font-mono text-violet">0{index + 1}</span> {item}
-              </li>
-            ))}
-          </ol>
-        </Card>
-        <Card>
-          <h2 className="font-display text-2xl font-semibold">Si ofrecés un oficio</h2>
-          <ol className="mt-5 space-y-3 text-sm leading-6 text-graphite-soft">
-            {forProfessionals.map((item, index) => (
-              <li key={item}>
-                <span className="font-mono text-violet">0{index + 1}</span> {item}
-              </li>
-            ))}
-          </ol>
-        </Card>
+      <Container className="py-16">
+        <SectionHeading title="Si necesitás un servicio" />
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {forClients.map((item, index) => (
+            <Card key={item}>
+              <p className="font-mono text-sm text-violet">0{index + 1}</p>
+              <p className="mt-3 text-sm leading-6 text-graphite-soft">{item}</p>
+            </Card>
+          ))}
+        </div>
       </Container>
+      <DarkBand>
+        <Container className="py-16">
+          <SectionHeading
+            tone="dark"
+            title="Si ofrecés un oficio"
+            description="La red se incorpora con revisión. El directorio de profesionales no es público."
+          />
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {forProfessionals.map((item, index) => (
+              <Card key={item}>
+                <p className="font-mono text-sm text-violet">0{index + 1}</p>
+                <p className="mt-3 text-sm leading-6 text-graphite-soft">{item}</p>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-10">
+            <Button href="/quiero-formar-parte" variant="inverse">
+              Quiero formar parte
+            </Button>
+          </div>
+        </Container>
+      </DarkBand>
     </>
   );
 }

@@ -24,6 +24,7 @@ export default function PanelPage() {
         eyebrow="Área privada"
         title="Panel de profesional"
         description="Cada trabajadora aprobada gestiona su información. La administradora conserva el control final sobre lo publicado."
+        media={false}
       />
       <Container className="grid gap-4 py-12 md:grid-cols-2">
         {modules.map((item) => (

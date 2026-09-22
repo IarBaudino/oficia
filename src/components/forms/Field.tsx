@@ -21,4 +21,4 @@ export function Field({ label, name, children, hint, className }: FieldProps) {
 }
 
 export const inputClassName =
-  "w-full rounded-[var(--radius-card)] border border-lavender bg-white px-4 py-3 text-sm text-graphite outline-none transition focus:border-violet";
+  "w-full rounded-xl border border-lavender bg-white px-4 py-3 text-sm text-graphite outline-none transition focus:border-violet";

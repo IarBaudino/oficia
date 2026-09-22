@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
@@ -11,10 +12,17 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-lavender/80 bg-canvas/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-lavender/70 bg-white/90 backdrop-blur-md">
       <Container className="flex items-center justify-between py-4">
-        <Link href="/" className="font-display text-xl font-bold tracking-tight">
-          {site.name}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/brand/logo.png"
+            alt={site.name}
+            width={148}
+            height={36}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Principal">

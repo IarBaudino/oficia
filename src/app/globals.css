@@ -5,7 +5,7 @@
   --color-violet-deep: #573dad;
   --color-lavender: #e7deff;
   --color-lavender-strong: #ccbdff;
-  --color-canvas: #fbf8ff;
+  --color-canvas: #f6f5f8;
   --color-white: #ffffff;
   --color-graphite: #1b1b20;
   --color-graphite-soft: #484552;
@@ -17,7 +17,7 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  --radius-card: 1rem;
+  --radius-card: 1.25rem;
   --radius-pill: 999px;
 }
 

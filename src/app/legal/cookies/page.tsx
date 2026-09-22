@@ -13,6 +13,7 @@ export default function CookiesPage() {
         eyebrow="Legal"
         title="Política de cookies"
         description="Estructura prevista para cuando corresponda informar el uso de cookies y analítica."
+        media={false}
       />
       <Container className="max-w-3xl py-12 text-sm leading-7 text-graphite-soft">
         <p>Espacio reservado para la política de cookies.</p>

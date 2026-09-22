@@ -24,6 +24,7 @@ export default function AdminPage() {
         eyebrow="Panel"
         title="Administración"
         description="Gestión integral de profesionales, solicitudes, servicios, contenidos, testimonios y usuarias."
+        media={false}
       />
       <Container className="grid gap-4 py-12 md:grid-cols-2">
         {modules.map((item) => (

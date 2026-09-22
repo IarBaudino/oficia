@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { DarkBand } from "@/components/layout/DarkBand";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
@@ -20,19 +21,24 @@ export default function ContactoPage() {
         title="Hablemos"
         description="Escribinos por el formulario o por los canales institucionales de OFICIA."
       />
-      <Container className="grid gap-8 py-12 lg:grid-cols-[1fr_1.2fr]">
-        <Card>
-          <h2 className="font-display text-xl font-semibold">Datos institucionales</h2>
-          <ul className="mt-4 space-y-2 text-sm text-graphite-soft">
-            <li>Email: {email || "se carga cuando esté definido"}</li>
-            <li>WhatsApp: {whatsapp || "se carga cuando esté definido"}</li>
-            <li>Redes: se vinculan al configurar Instagram y YouTube.</li>
-          </ul>
-        </Card>
-        <Card>
-          <ContactForm />
-        </Card>
-      </Container>
+      <DarkBand>
+        <Container className="grid gap-8 py-16 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-lavender-strong">
+              Datos institucionales
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-semibold">Canales de OFICIA</h2>
+            <ul className="mt-6 space-y-3 text-sm leading-6 text-white/75">
+              <li>Email: {email || "se carga cuando esté definido"}</li>
+              <li>WhatsApp: {whatsapp || "se carga cuando esté definido"}</li>
+              <li>Redes: se vinculan al configurar Instagram y YouTube.</li>
+            </ul>
+          </div>
+          <Card className="bg-white">
+            <ContactForm />
+          </Card>
+        </Container>
+      </DarkBand>
     </>
   );
 }

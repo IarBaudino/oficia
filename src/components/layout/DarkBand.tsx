@@ -1,6 +1,6 @@
 import { cn } from "@/lib/cn";
 
-export function Card({
+export function DarkBand({
   children,
   className,
 }: {
@@ -8,13 +8,14 @@ export function Card({
   className?: string;
 }) {
   return (
-    <div
+    <section
       className={cn(
-        "rounded-[var(--radius-card)] border border-lavender/80 bg-white p-6 shadow-[0_10px_30px_rgba(27,27,32,0.04)]",
+        "relative overflow-hidden bg-[#121216] text-white",
+        "bg-[radial-gradient(circle_at_top_right,rgba(112,87,199,0.18),transparent_40%)]",
         className,
       )}
     >
       {children}
-    </div>
+    </section>
   );
 }

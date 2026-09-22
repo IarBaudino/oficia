@@ -5,7 +5,13 @@ import { Button } from "@/components/ui/Button";
 import { Field, inputClassName } from "@/components/forms/Field";
 import { submitJson } from "@/lib/forms/submit";
 
-export function ServiceRequestForm() {
+export function ServiceRequestForm({
+  defaultService,
+  defaultZone,
+}: {
+  defaultService?: string;
+  defaultZone?: string;
+} = {}) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
 
@@ -62,10 +68,22 @@ export function ServiceRequestForm() {
         </Field>
       </div>
       <Field label="Servicio requerido" name="service">
-        <input id="service" name="service" required className={inputClassName} />
+        <input
+          id="service"
+          name="service"
+          required
+          defaultValue={defaultService}
+          className={inputClassName}
+        />
       </Field>
       <Field label="Zona / localidad" name="zone">
-        <input id="zone" name="zone" required className={inputClassName} />
+        <input
+          id="zone"
+          name="zone"
+          required
+          defaultValue={defaultZone}
+          className={inputClassName}
+        />
       </Field>
       <Field label="Descripción de la necesidad" name="description">
         <textarea

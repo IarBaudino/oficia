@@ -13,6 +13,7 @@ export default function TerminosPage() {
         eyebrow="Legal"
         title="Términos y condiciones"
         description="Estructura técnica lista. El contenido jurídico se incorpora cuando esté validado."
+        media={false}
       />
       <Container className="max-w-3xl py-12 text-sm leading-7 text-graphite-soft">
         <p>Espacio reservado para los términos y condiciones de uso de OFICIA.AR.</p>
